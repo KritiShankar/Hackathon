@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	setInterval(function(){
+		$("#show_data").load("http://localhost/KL/index_script.php");
+	},10);
+});
+
+</script>
+
+<style>
+body {
+  margin: 0;
+  font-family: "Times New Roman", Times, serif;
+  background-color: #adebad;/*#4CAF50;*/
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #0066cc;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-size: 22px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+  border-radius: 3px 3px 0px 0px;
+}
+
+.topnav a.active {
+  background-color:#47d147;/* #4CAF50;*/
+  color:#1a1a1a; /*white;*/
+  /*border: 2px solid red;*/
+  border-radius: 3px 3px 0px 0px;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+     
+  }
+  
+  
+  
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+.divv{
+	display: grid;
+  grid-template-columns: auto auto auto auto;
+  padding:10px;
+  
+  text-align:center;
+}
+
+.rotate{
+	width:150px;
+	height:150px;
+	border-left:7px outset blue;
+	border-right:7px outset blue;
+	border-radius:150px;
+	background-color: lightyellow;
+	text-align:center;
+}
+
+@media screen and (max-width: 600px){
+	.divv{
+		display:block;
+		top: 50%;
+    	margin-left: 30%;
+	}
+	body{
+		text-align:center;
+	}
+}
+
+
+
+</style>
+</head>
+<body>
+
+<div class="topnav">
+	<h1 style="color:white">&nbsp; DashBoard  </h1>
+</div>
+
+
+<div class="topnav" id="myTopnav">
+  <a href="index.html" class="active"><b>Home</b></a>
+  <a href="update.php">Updates</a>
+  <a href="dataset.php">Data</a>
+  <a href="team.html">Team</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<div style="padding-left:16px">
+  <h2>Current Response to database</h2>
+  <p></p>
+</div>
+
+
+
+
+<div class="divv" id= "show_data">
+	
+
+</div>
+
+<!--
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+
+var ajax = new XMLHttpRequest();
+var method = "GET";
+var url = "data.php";
+var asynchoronous = true;
+ajax.open(method,url,asynchoronous);
+ajax.send();
+
+ajax.onreadystatechange = function(){
+	if(this.readyState == 4 && this.status == 200){
+		var data = JSON.parse(this.responseText);
+		
+      document.getElementById("temp").innerHTML = data[0].temperature+"<br> Temp.";
+      document.getElementById("humi").innerHTML = data[0].humidity+"<br> Humidity";
+      document.getElementById("pres").innerHTML = data[0].pressure+"<br> Pressure";
+      document.getElementById("loc").innerHTML = data[0].location+"<br> Station";
+	}
+}
+
+
+</script>
+
+-->
+
+
+</body>
+</html>
+
